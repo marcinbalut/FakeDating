@@ -475,3 +475,6 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+API/fakedating.db
+API/fakedating.db-shm
+API/fakedating.db-wal
