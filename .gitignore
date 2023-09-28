@@ -480,3 +480,4 @@ API/fakedating.db-shm
 API/fakedating.db-wal
 client/ssl/localhost-key.pem
 client/ssl/localhost.pem
+API/appsettings.json
