@@ -59,7 +59,6 @@ export class PhotoEditorComponent implements OnInit {
     }
   }
 
-
   setMainPhoto(photo: Photo) {
     this.memberService.setMainPhoto(photo.id).subscribe({
       next: () => {
@@ -76,7 +75,13 @@ export class PhotoEditorComponent implements OnInit {
     });
   }
 
-  deletePhoto(id: any) {
-    
+  deletePhoto(photoId: number) {
+    this.memberService.deletePhoto(photoId).subscribe({
+      next: _ => {
+        if (this.member) {
+          this.member.photos = this.member?.photos.filter(x => x.id !== photoId)
+        }
+      }
+    })
   }
 }
