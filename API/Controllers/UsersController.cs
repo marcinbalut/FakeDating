@@ -28,7 +28,7 @@ public class UsersController : BaseApiController
     public async Task<ActionResult<PagedList<MemberDto>>> GetUsers([FromQuery] UserParams userParams)
     {
         var currentUser = await _userRepository.GetUserByUsernameAsync(User.GetUsername());
-        userParams.CurrentUsername = currentUser.Username;
+        userParams.CurrentUsername = currentUser.UserName;
 
         if (string.IsNullOrEmpty(userParams.Gender))
             userParams.Gender = currentUser.Gender == "male" ? "female" : "male";
@@ -82,7 +82,7 @@ public class UsersController : BaseApiController
 
         if (await _userRepository.SaveAllAsync())
         {
-            return CreatedAtAction(nameof(GetUser), new { username = user.Username },
+            return CreatedAtAction(nameof(GetUser), new { username = user.UserName },
                 _mapper.Map<PhotoDto>(photo));
         }
 

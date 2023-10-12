@@ -22,7 +22,7 @@ public static async Task SeedUsers(DataContext context)
             {
                 using var hmac = new HMACSHA512();
 
-                user.Username = user.Username.ToLower();
+                user.UserName = user.UserName.ToLower();
                 user.PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("!234Pass"));
                 user.PasswordSalt = hmac.Key;
 

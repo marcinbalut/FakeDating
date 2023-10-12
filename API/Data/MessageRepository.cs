@@ -42,11 +42,11 @@ public class MessageRepository : IMessageRepository
 
         query = messageParams.Container switch
         {
-            "Inbox" => query.Where(u => u.Recipient.Username == messageParams.Username &&
+            "Inbox" => query.Where(u => u.Recipient.UserName == messageParams.Username &&
              u.RecipientDeleted == false),
-            "Outbox" => query.Where(u => u.Sender.Username == messageParams.Username &&
+            "Outbox" => query.Where(u => u.Sender.UserName == messageParams.Username &&
                 u.SenderDeleted == false),
-            _ => query.Where(u => u.Recipient.Username == messageParams.Username
+            _ => query.Where(u => u.Recipient.UserName == messageParams.Username
                 && u.RecipientDeleted == false && u.DateRead == null)
         };
 
