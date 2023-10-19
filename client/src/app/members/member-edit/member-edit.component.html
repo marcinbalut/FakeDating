@@ -3,7 +3,7 @@
         <h1>Your profile</h1>
     </div>
     <div class="col-8">
-        <div class="alert alert-info" *ngIf="editForm.dirty">
+        <div class="alert alert-info pb-0" *ngIf="editForm.dirty">
             <p><strong>Information: </strong>You have made changes. Any unsaved changes will be lost</p>
         </div>
     </div>
@@ -22,11 +22,11 @@
                 </div>
                 <div>
                     <strong>Last active:</strong>
-                    <p>{{member.lastActive + 'Z' | timeago}}</p>
+                    <p>{{member.lastActive | timeago}}</p>
                 </div>
                 <div>
                     <strong>Member since:</strong>
-                    <p>{{member.created | date}}</p>
+                    <p>{{member.created | date:'dd MMM yyyy'}}</p>
                 </div>
             </div>
             <div class="card-footer">
