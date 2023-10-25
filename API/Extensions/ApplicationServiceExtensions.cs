@@ -14,8 +14,14 @@ namespace API.Extensions
         {
             services.AddDbContext<DataContext>(opt =>
             {
-                opt.UseSqlite(config.GetConnectionString("DefaultConnection"));
+                opt.UseNpgsql(config.GetConnectionString("DefaultConnection"));
             });
+
+            // services.AddDbContext<DataContext>(opt =>
+            // {
+            //     opt.UseSqlite(config.GetConnectionString("SqliteConnection"));
+            // });
+            
             services.AddCors();
             services.AddScoped<ITokenService, TokenService>();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
